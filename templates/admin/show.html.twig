@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Classes for this user</th>
+                <td>
+                    {% set break = true %}
+                    {% for class in classes %}
+                        {%  if class.user == user %}
+                            {% set break = false %}
+                            {{ class.id }} :: {{ class.name }}
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                    {% if break == true %}
+                        (no classes for this user)
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_allUser') }}">Back</a>
+
+    <a href="{{ path('admin_edit', {'id': user.id}) }}">Edit</a>
+
+    {{ include('admin/_delete_form.html.twig') }}
+{% endblock %}

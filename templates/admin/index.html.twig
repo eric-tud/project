@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>Admin Homepage</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><a href="{{ path('admin_allUser') }}">All User</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('classes_index') }}">All Classes</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('student_allStudent') }}">All Student</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_new') }}">Create new user</a>
+{% endblock %}

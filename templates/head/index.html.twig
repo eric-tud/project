@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Head home</h1>
+
+    <p>
+        <a href="{{ url('classes_index') }}">
+            All Classes
+        </a>
+    </p>
+
+    <p>
+        <a href="{{ url('classes_new') }}">
+            New Classes
+        </a>
+    </p>
+
+    <a href="{{ url('app_logout') }}">
+        logout
+    </a>
+
+{% endblock %}

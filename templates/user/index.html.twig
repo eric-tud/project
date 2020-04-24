@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User Homepage</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><a href="{{ path('attendance_all') }}">All Attendance</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('attendance_new') }}">Create new attendance</a>
+{% endblock %}
